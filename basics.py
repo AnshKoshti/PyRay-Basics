@@ -9,9 +9,12 @@ init_window(800, 600, "Base")
 # Importing things.
 spaceship_texture = load_texture(join("assets", "spaceship.png"))
 spaceship_image = load_image(join("assets", "spaceship.png"))
+cowboy_image = load_image(join("assets", "animation", "0.png"))
 
 image_color_grayscale(spaceship_image)
-new_texture = load_texture_from_image(spaceship_image)
+new_spaceship_texture = load_texture_from_image(spaceship_image)
+image_color_invert(cowboy_image)
+new_cowboy_texture = load_texture_from_image(cowboy_image)
 
 while not window_should_close():
     begin_drawing()
@@ -27,7 +30,8 @@ while not window_should_close():
 
     # Display images.
     draw_texture(spaceship_texture, 0, 0, WHITE)
-    draw_texture_v(new_texture, Vector2(100, 0), WHITE)
+    draw_texture_v(new_spaceship_texture, Vector2(100, 0), WHITE)
+    draw_texture(new_cowboy_texture, 650, 450, WHITE)
 
     end_drawing()
 close_window()

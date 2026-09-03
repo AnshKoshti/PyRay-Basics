@@ -3,10 +3,12 @@ from raylib import *
 from os.path import join
 
 # Windows defind parameters.
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 set_config_flags(FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
 
 # initializing window.
-init_window(800, 600, "Move")
+init_window(SCREEN_HEIGHT, SCREEN_HEIGHT, "Move")
 
 # Only used in certain conditions, not ideal for frame consistent games.
 # set_target_fps(60)
@@ -20,9 +22,9 @@ ship_speed = 100
 while not window_should_close():
 
     # Ship edge bounding.
-    if ship_pos.x >= 800:
+    if ship_pos.x >= SCREEN_WIDTH:
         ship_direction.x = -1
-    if ship_pos.y >= 600:
+    if ship_pos.y >= SCREEN_HEIGHT:
         ship_direction.y = -1
     if ship_pos.x <= 0:
         ship_direction.x = 1

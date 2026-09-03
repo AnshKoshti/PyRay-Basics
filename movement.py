@@ -4,7 +4,7 @@ from os.path import join
 
 # Windows defind parameters.
 set_config_flags(FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
-init_window(1920, 1080, "Move")
+init_window(800, 600, "Move")
 
 # Only used in certain conditions, not ideal for frame consistent games.
 # set_target_fps(60)
@@ -16,6 +16,16 @@ ship_direction = Vector2(1, 1)
 ship_speed = 100
 
 while not window_should_close():
+
+    # Ship edge bounding.
+    if ship_pos.x >= 1920:
+        ship_direction.x = -1
+    if ship_pos.y >= 1080:
+        ship_direction.y = -1
+    if ship_pos.x <= 0:
+        ship_direction.x = 1
+    if ship_pos.y <= 0:
+        ship_direction.y = 1
 
     # Movement update.
     dt = get_frame_time()

@@ -18,6 +18,14 @@ ship_speed = 100
 
 while not window_should_close():
 
+    # Input section.
+    # Mouse input.
+    # ship_pos = get_mouse_position()
+
+    # # State of the mouse button.
+    # if is_mouse_button_released(0):
+    #     print("Mouse button is pressed.")
+
     # Drawing functions.
     begin_drawing()
     clear_background(BLACK)

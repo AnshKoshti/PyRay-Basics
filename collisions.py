@@ -2,7 +2,7 @@ from pyray import *
 from raylib import *
 
 set_config_flags(FLAG_WINDOW_RESIZABLE)
-init_window(1920, 1080, "Raylib collisions.")
+init_window(800, 600, "Raylib collisions.")
 
 player_pos = Vector2(0, 0)
 obstacle_pos = Vector2(500, 400)

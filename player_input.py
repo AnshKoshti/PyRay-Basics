@@ -3,8 +3,8 @@ from raylib import *
 from os.path import join
 
 # Windows defind parameters.
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 set_config_flags(FLAG_WINDOW_RESIZABLE)
 
 # initializing window and closing key for window.

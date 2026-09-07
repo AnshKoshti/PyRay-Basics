@@ -5,7 +5,7 @@ from os.path import join
 # Windows defind parameters.
 SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = 1080
-set_config_flags(FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+set_config_flags(FLAG_WINDOW_RESIZABLE)
 
 # initializing window and closing key for window.
 init_window(SCREEN_HEIGHT, SCREEN_HEIGHT, "Player Input.")

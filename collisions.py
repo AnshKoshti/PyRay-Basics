@@ -1,7 +1,7 @@
 from pyray import *
 from raylib import *
 
-set_config_flags(FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+set_config_flags(FLAG_WINDOW_RESIZABLE)
 init_window(1920, 1080, "Raylib collisions.")
 
 player_pos = Vector2(0, 0)

@@ -28,6 +28,9 @@ while not window_should_close():
     # )
     print(check_collision_recs(r1, r2))
 
+    # Overlaping rectangle check.
+    overlap_rec = get_collision_rec(r1, r2)
+
     # Drawing.
     begin_drawing()
     clear_background(BLACK)
@@ -35,6 +38,9 @@ while not window_should_close():
     draw_circle_v(obstacle_pos, obstacle_radius, RED)
     draw_rectangle_rec(r1, BLUE)
     draw_rectangle_rec(r2, GREEN)
+
+    if overlap_rec:
+        draw_rectangle_rec(overlap_rec, RED)
     end_drawing()
 
 close_window()

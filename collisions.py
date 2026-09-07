@@ -14,6 +14,13 @@ while not window_should_close():
     # Input
     player_pos = get_mouse_position()
 
+    # Collision.
+    print(
+        check_collision_circles(
+            player_pos, player_radius, obstacle_pos, obstacle_radius
+        )
+    )
+
     # Drawing.
     begin_drawing()
     clear_background(BLACK)

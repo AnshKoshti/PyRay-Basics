@@ -2,8 +2,8 @@ from pyray import *
 from raylib import *
 from os.path import join
 
-set_config_flags(FLAG_WINDOW_RESIZABLE)
-init_window(800, 600, "Base")
+SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+init_window(1920, 1080, "Base")
 
 
 # Importing images/textures.

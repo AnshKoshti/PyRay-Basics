@@ -27,6 +27,7 @@ camera = Camera2D()
 camera.zoom = 1
 camera.target = pos
 camera.offset = Vector2(1920 / 2, 1080 / 2)
+camera.rotation = 0
 
 while not window_should_close():
 
@@ -41,6 +42,8 @@ while not window_should_close():
     pos.y += direction.y * speed * dt
 
     # Camera target.
+    rotate_direction = int(is_key_down(KEY_A)) - int(is_key_down(KEY_S))
+    camera.rotation += rotate_direction * dt * 50
     camera.target = pos
 
     # Drawing.

@@ -2,13 +2,11 @@ from pyray import *
 from raylib import *
 from os.path import join
 
-# Windows defind parameters.
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+# Windows defind parameters for SDL_3.
 SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
 
 # initializing window.
-init_window(SCREEN_HEIGHT, SCREEN_HEIGHT, "Move")
+init_window(1920, 1080, "Move")
 
 # Only used in certain conditions, not ideal for frame consistent games.
 # set_target_fps(60)
@@ -22,9 +20,9 @@ ship_speed = 100
 while not window_should_close():
 
     # Ship edge bounding.
-    if ship_pos.x >= SCREEN_WIDTH:
+    if ship_pos.x >= 1920:
         ship_direction.x = -1
-    if ship_pos.y >= SCREEN_HEIGHT:
+    if ship_pos.y >= 1080:
         ship_direction.y = -1
     if ship_pos.x <= 0:
         ship_direction.x = 1

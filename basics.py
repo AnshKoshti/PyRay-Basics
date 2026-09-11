@@ -2,9 +2,9 @@ from pyray import *
 from raylib import *
 from os.path import join
 
+# Simple window configs for SDL_3.
 SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
 init_window(1920, 1080, "Base")
-
 
 # Importing images/textures.
 spaceship_texture = load_texture(join("assets", "spaceship.png"))

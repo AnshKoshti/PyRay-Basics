@@ -1,9 +1,11 @@
 from pyray import *
 from raylib import *
 
+# Simple window configs for SDL_3.
 SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
 init_window(1920, 1080, "Raylib collisions.")
 
+# Player variables.
 player_pos = Vector2(0, 0)
 obstacle_pos = Vector2(500, 400)
 player_radius = 50

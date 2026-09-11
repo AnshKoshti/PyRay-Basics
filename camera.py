@@ -1,3 +1,4 @@
+import zoneinfo
 from pyray import *
 from raylib import *
 from random import randint, choice
@@ -10,7 +11,7 @@ init_window(1920, 1080, "Raylib camera.")
 pos = Vector2()
 radius = 50
 direction = Vector2()
-speed = 200
+speed = 400
 
 # Circles list setup.
 circles = [
@@ -44,6 +45,11 @@ while not window_should_close():
     # Camera target.
     rotate_direction = int(is_key_down(KEY_A)) - int(is_key_down(KEY_S))
     camera.rotation += rotate_direction * dt * 50
+
+    zoom_direction = int(is_key_down(KEY_Q)) - int(is_key_down(KEY_W))
+    camera.zoom += zoom_direction * dt * 2
+    camera.zoom = max(0.2, min(2, camera.zoom))
+
     camera.target = pos
 
     # Drawing.

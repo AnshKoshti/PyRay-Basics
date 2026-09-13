@@ -3,7 +3,7 @@ from raylib import *
 from os.path import join
 
 # Windows defind parameters for SDL_3.
-SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI)
 
 # initializing window and closing key for window.
 init_window(1920, 1080, "Player Input.")

@@ -3,7 +3,7 @@ from raylib import *
 from os.path import join
 
 # Simple window configs for SDL_3.
-SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI)
 init_window(1920, 1080, "Base")
 
 # Importing images/textures.

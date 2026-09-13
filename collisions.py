@@ -2,7 +2,7 @@ from pyray import *
 from raylib import *
 
 # Simple window configs for SDL_3.
-SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI)
 init_window(1920, 1080, "Raylib collisions.")
 
 # Player variables.

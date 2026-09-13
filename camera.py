@@ -4,7 +4,7 @@ from raylib import *
 from random import randint, choice
 
 # Simple window configs for SDL_3.
-SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_WINDOW_RESIZABLE)
+SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI)
 init_window(1920, 1080, "Raylib camera.")
 
 # Player variables.

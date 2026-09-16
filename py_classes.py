@@ -23,14 +23,34 @@ class Player:
         draw_texture_v(self.texture, self.pos, WHITE)
 
 
+class Block:
+    def __init__(self, pos, speed):
+        self.pos = pos
+        self.speed = speed
+        self.direction = Vector2(1, 0)
+        self.size = Vector2(100, 200)
+
+    def update(self):
+        dt = get_frame_time()
+        self.pos.x += self.direction.x * self.speed * dt
+        self.pos.y += self.direction.y * self.speed * dt
+
+    def draw(self):
+        draw_rectangle_v(self.pos, self.size, RED)
+
+
 init_window(1920, 1080, "Raylib - Classes.")
 player = Player(Vector2(500, 200))
+block = Block(Vector2(700, 0), 200)
 
 while not window_should_close():
     begin_drawing()
     clear_background(BLACK)
     player.update()
     player.draw()
+
+    block.update()
+    block.draw()
     end_drawing()
 
 close_window()

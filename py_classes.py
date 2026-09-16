@@ -3,54 +3,58 @@ from raylib import *
 from os.path import join
 
 
-class Player:
-    def __init__(self, pos):
+class Sprite:
+    def __init__(self, pos, speed):
         self.pos = pos
+        self.speed = speed
+
+    def move(self, dt):
+        self.pos.x += self.direction.x * self.speed * dt
+        self.pos.y += self.direction.y * self.speed * dt
+
+
+class Player(Sprite):
+    def __init__(self, pos):
+        super().__init__(pos, 400)
         self.texture = load_texture(join("assets", "spaceship.png"))
         self.direction = Vector2()
-        self.speed = 400
 
-    def update(self):
+    def update(self, dt):
         self.direction.x = int(is_key_down(KEY_D)) - int(is_key_down(KEY_A))
         self.direction.y = int(is_key_down(KEY_S)) - int(is_key_down(KEY_W))
         self.direction = Vector2Normalize(self.direction)
 
-        dt = get_frame_time()
-        self.pos.x += self.direction.x * self.speed * dt
-        self.pos.y += self.direction.y * self.speed * dt
+        self.move(dt)
 
     def draw(self):
         draw_texture_v(self.texture, self.pos, WHITE)
 
 
-class Block:
+class Block(Sprite):
     def __init__(self, pos, speed):
-        self.pos = pos
-        self.speed = speed
+        super().__init__(pos, speed)
         self.direction = Vector2(1, 0)
         self.size = Vector2(100, 200)
 
-    def update(self):
-        dt = get_frame_time()
-        self.pos.x += self.direction.x * self.speed * dt
-        self.pos.y += self.direction.y * self.speed * dt
+    def update(self, dt):
+        self.move(dt)
 
     def draw(self):
         draw_rectangle_v(self.pos, self.size, RED)
 
 
 init_window(1920, 1080, "Raylib - Classes.")
-player = Player(Vector2(500, 200))
-block = Block(Vector2(700, 0), 200)
+sprites = [Player(Vector2(500, 200)), Block(Vector2(700, 0), 200)]
 
 while not window_should_close():
+    dt = get_frame_time()
+    for sprite in sprites:
+        sprite.update(dt)
+
     begin_drawing()
     clear_background(BLACK)
-    player.update()
-    player.draw()
-
-    block.update()
-    block.draw()
+    for sprite in sprites:
+        sprite.draw()
     end_drawing()
 
 close_window()
